@@ -93,6 +93,10 @@ ul.mentor-list li span {
   text-decoration: line-through;
 }
 
+.mentor-list .detail-price p > span.whithout-line {
+  text-decoration: none;
+}
+
 .mentor-list .detail-price .mentor {
   font-size: 18px;
 }

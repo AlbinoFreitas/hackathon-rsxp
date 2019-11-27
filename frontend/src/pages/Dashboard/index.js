@@ -76,8 +76,9 @@ export default function Dashboard({ history }) {
               <div className="detail-price">
                 <p className="mentor">Mentoria</p>
                 <p className="price">
-                  R$
-                  <span>{mentor.price}</span>
+                  <span className={mentor.price ? '' : 'whithout-line'}>
+                    {mentor.price ? 'R$ ' + mentor.price : 'Gratuito' }
+                  </span>
                 </p>
                 <p className="trial">Sessão de <b>30 minutos grátis</b></p>
 
