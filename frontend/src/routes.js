@@ -1,5 +1,5 @@
 import React from "react";
-import { BrowserRouter, Switch, Route } from "react-router-dom";
+import { HashRouter, Switch, Route } from "react-router-dom";
 
 import Login from "./pages/Login";
 import Dashboard from "./pages/Dashboard";
@@ -8,13 +8,13 @@ import Videocall from "./pages/Videocall";
 
 export default function Routes() {
   return (
-    <BrowserRouter>
+    <HashRouter>
       <Switch>
-        <Route path="/" exact component={Login} />
+        <Route path="/" exact component={Dashboard} />
         <Route path="/dashboard" component={Dashboard} />
-        <Route path="/details" component={Details} />
+        <Route path="/details/:id" component={Details} />
         <Route path="/videocall" component={Videocall} />
       </Switch>
-    </BrowserRouter>
+    </HashRouter>
   );
 }

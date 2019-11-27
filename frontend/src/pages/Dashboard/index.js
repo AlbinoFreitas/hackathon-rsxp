@@ -1,9 +1,6 @@
 import React, { useEffect, useState } from "react";
-import { Link } from "react-router-dom";
-import api from "../../services/api";
-
-import Header from "../../components/Header";
 import NextSession from "../../components/NextSession";
+import api from "../../services/api";
 
 import "./styles.css";
 import m1 from "../../assets/userMentor1.jpg";
@@ -46,7 +43,6 @@ export default function Dashboard({ history }) {
   }
 
   return (
-
     <>
       <div>
         <NextSession />
@@ -55,13 +51,13 @@ export default function Dashboard({ history }) {
         <h2>Mentores</h2>
         <ul className="mentor-list">
           {mentors.map(mentor => (
-            <li key={mentor.name} onClick={() => handleClick()}>
+            <li key={mentor.name} onClick={() => handleClick(mentor.id)}>
               <div>
                 <img className="mentor-thumbnail" src={mentor.thumbnail_url} />
                 <br />
                 <img className="mentor-rating" src={stars} />
                 <br />
-                10 avaliações
+                {range(5, 30)} avaliações
               </div>
               <div className="details">
                 <p>
@@ -72,16 +68,18 @@ export default function Dashboard({ history }) {
                 <p>
                   <span>{mentor.semester}º semestre</span>
                 </p>
+                <div className="skills-wrapper">
+                  {mentor.skills.slice(0,6).map(skill => (<div className="skill">{skill.name}</div>))}
+                </div>
               </div>
 
               <div className="detail-price">
                 <p className="mentor">Mentoria</p>
                 <p className="price">
-                  {mentor.price ? `R$ ${mentor.price}` : "Gratuito"}
-                  {/* R$
-                <span>{mentor.price}</span> */}
+                  R$
+                  <span>{mentor.price}</span>
                 </p>
-                <p className="trial">Sessão de 30 minutos</p>
+                <p className="trial">Sessão de <b>30 minutos grátis</b></p>
 
                 <button onClick={() => handleClick()}>Ver detalhes</button>
               </div>
